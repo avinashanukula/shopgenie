@@ -20,9 +20,9 @@ export default function HistoryView({ conversations, onSelectConversation }) {
   );
 
   return (
-    <div style={{ padding: '24px 32px', maxWidth: '880px', margin: '0 auto', width: '100%' }}>
+    <div style={{ padding: '16px', maxWidth: '880px', margin: '0 auto', width: '100%' }}>
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
         <div>
           <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#0f172a', margin: 0 }}>
             Conversation History
@@ -32,7 +32,7 @@ export default function HistoryView({ conversations, onSelectConversation }) {
           </p>
         </div>
 
-        <div style={{ position: 'relative', width: '240px' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '240px' }}>
           <Search size={13} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
           <input
             type="text"

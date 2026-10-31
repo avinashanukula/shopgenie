@@ -97,8 +97,9 @@ export default function SimulateModal({ onClose, onSimulate }) {
         borderRadius: '12px',
         width: '100%',
         maxWidth: '520px',
+        maxHeight: '90dvh',
+        overflowY: 'auto',
         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-        overflow: 'hidden',
       }}>
         {/* Header */}
         <div style={{

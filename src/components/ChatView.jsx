@@ -1,8 +1,5 @@
-// ============================================================
-// ChatView.jsx – Clean, minimal customer chat interface
-// ============================================================
 import { useEffect, useRef, useState } from 'react';
-import { Send, User, Bot, Check, CheckCheck } from 'lucide-react';
+import { Send, User, Bot, Check, CheckCheck, ArrowLeft } from 'lucide-react';
 import { formatMessageTime } from '../utils/time';
 import { generateAIReply, DEMO_PROMPTS } from '../data/aiEngine';
 
@@ -132,7 +129,7 @@ function MessageBubble({ message, customerName }) {
   );
 }
 
-export default function ChatView({ conversation, onSendMessage, onAIReply, defaultPrompt }) {
+export default function ChatView({ conversation, onSendMessage, onAIReply, defaultPrompt, onBack }) {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
@@ -196,7 +193,7 @@ export default function ChatView({ conversation, onSendMessage, onAIReply, defau
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: '#f8fafc' }}>
       {/* Chat Header */}
       <div style={{
-        padding: '14px 20px',
+        padding: '12px 16px',
         background: '#ffffff',
         borderBottom: '1px solid #e2e8f0',
         display: 'flex',
@@ -204,7 +201,28 @@ export default function ChatView({ conversation, onSendMessage, onAIReply, defau
         justifyContent: 'space-between',
         flexShrink: 0,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {onBack && (
+            <button
+              onClick={onBack}
+              style={{
+                background: '#f1f5f9',
+                border: 'none',
+                borderRadius: '6px',
+                width: '32px',
+                height: '32px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: '#334155',
+                flexShrink: 0,
+              }}
+            >
+              <ArrowLeft size={16} />
+            </button>
+          )}
+
           <div style={{
             width: '36px',
             height: '36px',
@@ -216,6 +234,7 @@ export default function ChatView({ conversation, onSendMessage, onAIReply, defau
             justifyContent: 'center',
             fontWeight: 700,
             fontSize: '13px',
+            flexShrink: 0,
           }}>
             {conversation.avatar}
           </div>
